@@ -35,18 +35,23 @@ namespace InstantiatedClassDemo
                 Console.Write("What is your first name (or type exit to stop: ");
                 firstName = Console.ReadLine();
 
+                Console.Write("What is your last name: ");
+                string lastName = Console.ReadLine();
+
                 if (firstName.ToLower() != "exit")
                 {
                     PersonModel person = new PersonModel();
                     person.FirstName = firstName;
+                    person.LastName = lastName;
                     people.Add(person);
                 }
             } while (firstName.ToLower() != "exit");
 
             foreach (PersonModel p in people)
             {
-                Console.WriteLine(p.FirstName);
+                ProcessPerson.GreetPerson(p);
             }
+            
 
             Console.ReadLine();
 
